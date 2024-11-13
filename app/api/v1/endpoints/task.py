@@ -3,8 +3,7 @@ import json
 import logging
 
 from fastapi import APIRouter, Depends, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from sse_starlette.sse import EventSourceResponse
 
@@ -15,7 +14,6 @@ from app.services.task import TaskService
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
-# templates = Jinja2Templates(directory="templates")
 
 
 @router.get("/", response_class=HTMLResponse)

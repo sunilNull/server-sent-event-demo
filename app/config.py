@@ -8,7 +8,6 @@ class Settings(BaseSettings):
     APP_NAME: str = "Task Status Service"
     DEBUG: bool = False
     DATABASE_URL: str = "sqlite:///./tasks.db"
-    REDIS_URL: Optional[str] = None  # Optional Redis for scaling
     LOG_LEVEL: str = "INFO"
 
     class Config:

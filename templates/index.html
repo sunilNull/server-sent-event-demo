@@ -45,7 +45,9 @@
     <div class="status-card">
         <h2>Status Monitor</h2>
         <button onclick="startNewProcess()">Start New Process</button>
-        
+        <div class="status-display" id="taskId">
+            Task ID: None
+        </div>
         <div class="status-display" id="currentStatus">
             Current Status: Not started
         </div>
@@ -73,11 +75,6 @@
                 const data = JSON.parse(event.data);
                 updateStatus(data);
             });
-            // currentEventSource.onmessage = function(event) {
-            //     const data = JSON.parse(event.data);
-            //     console.log(data);
-            //     updateStatus(data);
-            // };
 
             currentEventSource.onerror = function(error) {
                 console.error('SSE Error:', error);
@@ -97,12 +94,6 @@
             historyItem.textContent = `${data.timestamp}: ${data.status}`;
             historyDiv.insertBefore(historyItem, historyDiv.firstChild);
 
-            // If status is 'completed', close the connection
-            // if (data.status === 'completed') {
-            //     currentEventSource.close();
-            // }
-        }
-
         async function startNewProcess() {
             try {
                 const taskId = 'task-' + Date.now(); // Generate unique task ID
@@ -116,6 +107,8 @@
                 // Start monitoring the new process
                 startStatusMonitoring(taskId);
                 
+                document.getElementById('taskId').textContent = "Task ID : "+taskId;
+
                 document.getElementById('currentStatus').textContent = "Current Status: Initiated";
 
                 // Clear previous history
