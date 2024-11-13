@@ -55,3 +55,8 @@ python main.py
 
 ## Usage
 - open [home_url](http://0.0.0.0:8000/api/v1/) to start new process
+- pick task_id from homepage & change status using [this_api](http://localhost:8000/docs#/default/update_status_api_v1_task__task_id__status_post)
+- moniter changes in [home_url](http://0.0.0.0:8000/api/v1/)
+
+
+#### EnjoyCoding!!!
