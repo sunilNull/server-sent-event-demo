@@ -93,6 +93,7 @@
             historyItem.className = 'history-item';
             historyItem.textContent = `${data.timestamp}: ${data.status}`;
             historyDiv.insertBefore(historyItem, historyDiv.firstChild);
+        }
 
         async function startNewProcess() {
             try {
